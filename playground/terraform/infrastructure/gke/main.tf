@@ -28,9 +28,8 @@ resource "google_container_cluster" "playground-gke" {
 
   master_authorized_networks_config {
     cidr_block   = "10.0.0.0/8"
-    display_name = "your-display-name"
   }
-  
+
   private_cluster_config {
     enable_private_endpoint = true
     enable_private_nodes    = true
