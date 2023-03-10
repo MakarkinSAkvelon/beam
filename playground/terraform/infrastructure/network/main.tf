@@ -43,15 +43,9 @@ resource "google_compute_router_nat" "playground_nat_gateway" {
   router             = google_compute_router.playground-router.name
   nat_ip_allocate_option = "AUTO_ONLY"
 
-  source_subnetwork_ip_ranges_to_nat = ["10.128.0.0/20"]
+  source_subnetwork_ip_ranges_to_nat = "ALL_SUBNETWORKS_ALL_IP_RANGES"
 
   # Configure NAT for the private subnet
-  nat_config {
-    source_subnetwork_ip_ranges_to_nat = ["10.128.0.0/20"]
-    icmp_idle_timeout_sec              = 1800
-    tcp_established_idle_timeout_sec   = 1200
-    tcp_transitory_idle_timeout_sec    = 30
-  }
 }
 
 # Create a firewall rule to allow traffic from the private subnet to the NAT gateway
