@@ -54,7 +54,7 @@ resource "google_compute_firewall" "private_to_nat" {
   network = google_compute_network.playground.self_link
 
   allow {
-    protocol = "all"
+    protocol = "tcp"
     ports     = ["80", "8080", "443", "22"]
   }
   source_ranges = [google_compute_subnetwork.playground.ip_cidr_range]
