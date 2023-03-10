@@ -43,11 +43,11 @@ resource "google_compute_router_nat" "playground_nat_gateway" {
   router             = google_compute_router.playground-router.name
   nat_ip_allocate_option = "AUTO_ONLY"
 
-  source_subnetwork_ip_ranges_to_nat = var.subnetwork_cidr_range
+  source_subnetwork_ip_ranges_to_nat = ["primary-ip-range"]
 
   # Configure NAT for the private subnet
   nat_config {
-    source_subnetwork_ip_ranges_to_nat = var.subnetwork_cidr_range
+    source_subnetwork_ip_ranges_to_nat = ["primary-ip-range"]
     icmp_idle_timeout_sec              = 1800
     tcp_established_idle_timeout_sec   = 1200
     tcp_transitory_idle_timeout_sec    = 30
