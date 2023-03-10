@@ -55,7 +55,7 @@ resource "google_compute_firewall" "private_to_nat" {
 
   allow {
     protocol = "all"
-    source_ranges = [google_compute_subnetwork.playground.ip_cidr_range]
+    ports     = ["80", "8080", "443", "22"]
   }
 
   target_tags = ["nat-gateway"]
