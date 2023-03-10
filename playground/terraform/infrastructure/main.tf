@@ -31,7 +31,7 @@ module "network" {
   region          = var.network_region
   network_name    = var.network_name
   subnetwork_name = var.subnetwork_name
-}
+  }
 
 module "artifact_registry" {
   depends_on = [module.setup, module.api_enable, module.ip_address]
@@ -68,6 +68,7 @@ module "gke" {
   location          = var.location
   subnetwork        = module.network.playground_subnetwork_id
   network           = module.network.playground_network_id
+  subnetwork_cidr   = module.network.playground_subnetwork_cidr
 }
 
 module "ip_address" {

@@ -32,3 +32,7 @@ output "playground_network_name" {
 output "playground_subnetwork_name" {
   value = google_compute_subnetwork.playground.name
 }
+
+output "playground_subnetwork_cidr" {
+  value = google_compute_subnetwork.playground.ip_cidr_range
+}

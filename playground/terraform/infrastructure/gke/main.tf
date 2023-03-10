@@ -33,7 +33,7 @@ resource "google_container_cluster" "playground-gke" {
   }
   master_authorized_networks_config {
     cidr_blocks {
-      cidr_block = var.subnetwork
+      cidr_block = var.subnetwork_cidr
       display_name = "GKE"
     }  
   }
