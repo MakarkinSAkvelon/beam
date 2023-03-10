@@ -55,3 +55,7 @@ variable "max_count" {
   description = "Max cluster node count"
   default     = 6
 }
+
+variable "subnetwork_cidr" {
+  description = "GCP network within which resources are provisioned"
+}
